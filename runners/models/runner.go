@@ -8,6 +8,6 @@ type Runner struct {
 	IsActive     bool      `json:"is_active"`
 	Country      string    `json:"country"`
 	PersonalBest string    `json:"personal_best,omitempty"`
-	SeasonalBest string    `json:"seasonal_best,omitempty"`
+	SeasonBest   string    `json:"season_best,omitempty"`
 	Results      []*Result `json:"results,omitempty"`
 }

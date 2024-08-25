@@ -7,14 +7,15 @@ import (
 	"net/http"
 
 	"github.com/aru4040/learningModernGoWebApp/runners/models"
+	"github.com/aru4040/learningModernGoWebApp/runners/services"
 	"github.com/gin-gonic/gin"
 )
 
 type RunnersController struct {
-	runnersService *runnersService
+	runnersService *services.RunnersService
 }
 
-func NewRunnerController(runnersService *services.runnersService) *RunnersController {
+func NewRunnersController(runnersService *services.RunnersService) *RunnersController {
 	return &RunnersController{
 		runnersService: runnersService,
 	}
