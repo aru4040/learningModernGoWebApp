@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/aru4040/learningModernGoWebApp/runners/controllers"
+	"github.com/aru4040/learningModernGoWebApp/runners/services"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )
@@ -13,7 +14,7 @@ type HttpServer struct {
 	config            *viper.Viper
 	router            *gin.Engine
 	runnersController *controllers.RunnersController
-	resultsController *controllers.ResultController
+	resultsController *controllers.ResultsController
 }
 
 func InitHttpServer(config *viper.Viper, dbHandler *sql.DB) HttpServer {
