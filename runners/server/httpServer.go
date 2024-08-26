@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/aru4040/learningModernGoWebApp/runners/controllers"
+	"github.com/aru4040/learningModernGoWebApp/runners/repositories"
 	"github.com/aru4040/learningModernGoWebApp/runners/services"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
@@ -33,7 +34,7 @@ func InitHttpServer(config *viper.Viper, dbHandler *sql.DB) HttpServer {
 	router.PUT("/runner", runnersController.UpdateRunner)
 	router.DELETE("/runner/:id", runnersController.DeleteRunner)
 	router.GET("/runner/:id", runnersController.GetRunner)
-	router.GET("/runner", runnersController.GetRunnerBatch)
+	router.GET("/runner", runnersController.GetRunnersBatch)
 
 	router.POST("/result", resultsController.CreateResult)
 	router.DELETE("/result/:id", resultsController.DeleteResult)
