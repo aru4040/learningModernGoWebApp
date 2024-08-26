@@ -44,7 +44,7 @@ func (rr RunnersRepository) CreateRunner(runner *models.Runner) (*models.Runner,
 	}
 	if rows.Err() != nil {
 		return nil, &models.ResponseError{
-			Message: err.Error(),
+			Message: rows.Err().Error(),
 			Status:  http.StatusInternalServerError,
 		}
 	}
@@ -173,7 +173,7 @@ func (rr RunnersRepository) GetRunner(runnerId string) (*models.Runner, *models.
 	}
 	if rows.Err() != nil {
 		return nil, &models.ResponseError{
-			Message: err.Error(),
+			Message: rows.Err().Error(),
 			Status:  http.StatusInternalServerError,
 		}
 	}
@@ -229,7 +229,7 @@ func (rr RunnersRepository) GetAllRunners() ([]*models.Runner, *models.ResponseE
 	}
 	if rows.Err() != nil {
 		return nil, &models.ResponseError{
-			Message: err.Error(),
+			Message: rows.Err().Error(),
 			Status:  http.StatusInternalServerError,
 		}
 	}
@@ -277,7 +277,7 @@ func (rr RunnersRepository) GetRunnersByCountry(country string) ([]*models.Runne
 	}
 	if rows.Err() != nil {
 		return nil, &models.ResponseError{
-			Message: err.Error(),
+			Message: rows.Err().Error(),
 			Status:  http.StatusInternalServerError,
 		}
 	}
@@ -335,7 +335,7 @@ func (rr RunnersRepository) GetRunnersByYear(year int) ([]*models.Runner, *model
 	}
 	if rows.Err() != nil {
 		return nil, &models.ResponseError{
-			Message: err.Error(),
+			Message: rows.Err().Error(),
 			Status:  http.StatusInternalServerError,
 		}
 	}
