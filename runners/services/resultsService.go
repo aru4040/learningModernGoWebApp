@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/aru4040/learningModernGoWebApp/runners/models"
+	"github.com/aru4040/learningModernGoWebApp/runners/repositories"
 )
 
 type ResultsService struct {
@@ -13,8 +14,8 @@ type ResultsService struct {
 }
 
 func NewResultsService(
-	resultsRepository *repository.ResultsRepository,
-	runnersRepository *repository.RunnersRepository,
+	resultsRepository *repositories.ResultsRepository,
+	runnersRepository *repositories.RunnersRepository,
 ) *ResultsService {
 	return &ResultsService{
 		resultsRepository: resultsRepository,
@@ -115,7 +116,7 @@ func (rs ResultsService) CreateResult(result *models.Result) (*models.Result, *m
 				}
 			}
 			if raceResult < seasonBest {
-				runner.SeasonBest = raceResult
+				runner.SeasonBest = result.RaceResult
 			}
 		}
 

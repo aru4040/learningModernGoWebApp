@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/aru4040/learningModernGoWebApp/runners/models"
+	"github.com/aru4040/learningModernGoWebApp/runners/repositories"
 )
 
 type RunnersService struct {
@@ -108,7 +109,7 @@ func (rs RunnersService) GetRunnersBatch(country string, year string) ([]*models
 	}
 
 	// パラメータの設定がないときはすべてのrunnerを取得
-	return rs.runnersRepository.GetRunners()
+	return rs.runnersRepository.GetAllRunners()
 }
 
 func validateRunner(runner *models.Runner) *models.ResponseError {
